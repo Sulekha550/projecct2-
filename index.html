@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-shape shape-one"></div>
+  <div class="bg-shape shape-two"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">✓</span>
+        <div>
+          <h1>TaskFlow</h1>
+          <p>Simple. Focused. Productive.</p>
+        </div>
+      </div>
+      <div class="date-badge" id="todayDate"></div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">YOUR DAILY WORKSPACE</span>
+        <h2>Turn plans into <span>progress.</span></h2>
+        <p>Add your tasks, complete what matters, and keep your day organized without distractions.</p>
+      </div>
+      <div class="progress-card">
+        <div class="progress-ring">
+          <span id="progressPercent">0%</span>
+        </div>
+        <div>
+          <strong id="progressTitle">Getting started</strong>
+          <small id="progressText">0 of 0 completed</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="todo-card">
+      <form id="todoForm" class="input-row">
+        <input id="taskInput" type="text" maxlength="120" placeholder="What needs to be done?" autocomplete="off">
+        <button type="submit" id="addBtn">+ Add Task</button>
+      </form>
+
+      <div class="toolbar">
+        <div class="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="active">Active</button>
+          <button class="filter" data-filter="completed">Completed</button>
+        </div>
+        <button class="clear-btn" id="clearCompleted">Clear completed</button>
+      </div>
+
+      <ul id="taskList" class="task-list"></ul>
+
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">✓</div>
+        <h3>No tasks yet</h3>
+        <p>Add your first task above and start making progress.</p>
+      </div>
+
+      <div class="footer-stats">
+        <span><strong id="remainingCount">0</strong> tasks remaining</span>
+        <span id="savedStatus">Saved automatically</span>
+      </div>
+    </section>
+
+    <footer>
+      <p>Built with HTML, CSS & Vanilla JavaScript</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

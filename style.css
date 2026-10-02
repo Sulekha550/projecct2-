@@ -1,0 +1,449 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f5f7ff;
+  --surface: rgba(255, 255, 255, 0.88);
+  --text: #171a2b;
+  --muted: #73788f;
+  --primary: #6246ea;
+  --primary-dark: #4b32c3;
+  --border: #e8e9f2;
+  --success: #16a47b;
+  --danger: #ef5364;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 5%, rgba(98, 70, 234, .14), transparent 28%),
+    radial-gradient(circle at 90% 90%, rgba(31, 198, 165, .12), transparent 25%),
+    var(--bg);
+  overflow-x: hidden;
+}
+
+.bg-shape {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(3px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.shape-one {
+  width: 280px;
+  height: 280px;
+  background: rgba(98, 70, 234, .08);
+  top: -100px;
+  right: -80px;
+}
+
+.shape-two {
+  width: 220px;
+  height: 220px;
+  background: rgba(22, 164, 123, .08);
+  bottom: -80px;
+  left: -80px;
+}
+
+.app-shell {
+  width: min(100% - 32px, 980px);
+  margin: 0 auto;
+  padding: 34px 0 24px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 42px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), #8d73ff);
+  font-size: 23px;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(98, 70, 234, .25);
+}
+
+.brand h1 {
+  font: 700 21px "Space Grotesk", sans-serif;
+}
+
+.brand p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.date-badge {
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(255,255,255,.7);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 11px;
+  letter-spacing: 1.7px;
+  font-weight: 700;
+}
+
+.hero h2 {
+  max-width: 620px;
+  margin: 10px 0 10px;
+  font: 700 clamp(34px, 5vw, 52px)/1.05 "Space Grotesk", sans-serif;
+  letter-spacing: -2px;
+}
+
+.hero h2 span {
+  color: var(--primary);
+}
+
+.hero p {
+  max-width: 590px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.progress-card {
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 20px;
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 15px 45px rgba(39, 44, 79, .08);
+}
+
+.progress-ring {
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: conic-gradient(var(--primary) 0deg, #e9e8f7 0deg);
+  position: relative;
+}
+
+.progress-ring::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.progress-ring span {
+  position: relative;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.progress-card strong {
+  display: block;
+  font-size: 14px;
+}
+
+.progress-card small {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+.todo-card {
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 26px;
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 22px 65px rgba(39, 44, 79, .1);
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.input-row input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--border);
+  outline: none;
+  border-radius: 14px;
+  padding: 15px 17px;
+  color: var(--text);
+  background: #fff;
+  font: 500 14px "DM Sans", sans-serif;
+  transition: .2s;
+}
+
+.input-row input:focus {
+  border-color: rgba(98,70,234,.5);
+  box-shadow: 0 0 0 4px rgba(98,70,234,.08);
+}
+
+.input-row button {
+  border: 0;
+  border-radius: 14px;
+  padding: 0 23px;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), #8066f4);
+  font: 700 13px "DM Sans", sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.input-row button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 20px rgba(98,70,234,.24);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 22px 2px 14px;
+}
+
+.filters {
+  display: flex;
+  gap: 5px;
+  padding: 4px;
+  border-radius: 10px;
+  background: #f1f1f7;
+}
+
+.filter,
+.clear-btn {
+  border: 0;
+  cursor: pointer;
+  font: 600 12px "DM Sans", sans-serif;
+}
+
+.filter {
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  background: transparent;
+}
+
+.filter.active {
+  color: var(--text);
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.clear-btn {
+  color: var(--danger);
+  background: transparent;
+}
+
+.task-list {
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 7px;
+  border-bottom: 1px solid #eeeef4;
+  animation: slideIn .25s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.check-btn {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  border: 2px solid #d7d8e4;
+  border-radius: 7px;
+  background: white;
+  color: white;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: .2s;
+}
+
+.task-item.completed .check-btn {
+  border-color: var(--success);
+  background: var(--success);
+}
+
+.task-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.task-item.completed .task-text {
+  color: #999daf;
+  text-decoration: line-through;
+}
+
+.delete-btn {
+  border: 0;
+  padding: 7px;
+  border-radius: 8px;
+  color: #b2b4c2;
+  background: transparent;
+  cursor: pointer;
+  font-size: 17px;
+  transition: .2s;
+}
+
+.delete-btn:hover {
+  color: var(--danger);
+  background: #fff0f2;
+}
+
+.empty-state {
+  padding: 45px 20px 38px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.empty-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 13px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  color: var(--primary);
+  background: #eeebff;
+  font-size: 23px;
+}
+
+.empty-state h3 {
+  color: var(--text);
+  font: 700 16px "Space Grotesk", sans-serif;
+}
+
+.empty-state p {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.footer-stats {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.footer-stats strong {
+  color: var(--text);
+}
+
+footer {
+  padding-top: 24px;
+  text-align: center;
+  color: #9a9daf;
+  font-size: 11px;
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    width: min(100% - 22px, 600px);
+    padding-top: 22px;
+  }
+
+  .topbar {
+    margin-bottom: 30px;
+  }
+
+  .date-badge {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero h2 {
+    letter-spacing: -1.5px;
+  }
+
+  .progress-card {
+    width: 100%;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .input-row button {
+    min-height: 48px;
+  }
+
+  .toolbar {
+    align-items: flex-start;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .todo-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 420px) {
+  .filters {
+    width: 100%;
+  }
+
+  .filter {
+    flex: 1;
+  }
+
+  .footer-stats {
+    gap: 10px;
+    flex-direction: column;
+  }
+}
